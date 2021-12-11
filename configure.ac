@@ -1,4 +1,4 @@
-AC_INIT([cudaminer], [2014.02.28])
+AC_INIT([cudaminer], [2021.12.07])
 
 AC_PREREQ([2.59c])
 AC_CANONICAL_SYSTEM
@@ -100,7 +100,7 @@ AC_CHECK_LIB([pthread], [pthread_create], PTHREAD_LIBS="-lpthread",
       AC_CHECK_LIB([pthreadGC], [pthread_create], PTHREAD_LIBS="-lpthreadGC"
 ))))
 
-AC_CHECK_LIB([ssl],[SSL_library_init], [], [AC_MSG_ERROR([OpenSSL library required])])
+AC_CHECK_LIB([ssl],[OPENSSL_init_ssl], [], [AC_MSG_ERROR([OpenSSL library required])])
 AC_CHECK_LIB([crypto],[EVP_DigestFinal_ex], [], [AC_MSG_ERROR([OpenSSL library required])])
 
 AM_CONDITIONAL([WANT_JANSSON], [test x$request_jansson = xtrue])
